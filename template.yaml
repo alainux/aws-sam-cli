@@ -28,6 +28,20 @@ Resources:
           Properties:
             Path: /hello
             Method: get
+        FileUpload: 
+          Type: S3
+          Properties: 
+            Bucket: !Ref MyFilesBucket
+            Events: s3:ObjectCreated:*
+  MyFilesBucket:
+    Type: AWS::S3::Bucket
+  MyAwesomeTable:
+    Type: AWS::Serverless::SimpleTable
+    Properties:
+      PrimaryKey: 
+        Name: id
+        Type: String
+      TableName: my-awesome-database
 
 Outputs:
   # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function

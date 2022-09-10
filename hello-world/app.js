@@ -15,6 +15,7 @@ let response;
  * 
  */
 exports.lambdaHandler = async event => {
+  console.log("event", event);
   try {
     // const ret = await axios(url);
     response = {
